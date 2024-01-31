@@ -1,13 +1,13 @@
 import GameCard from '@/components/game/Card';
 import { useFetch } from '@/lib/utils';
-import { groupByDatePara, groupByDate, groupByDateReturn } from '@/lib/utils';
+import { groupByDatePara, useFetchResponse, groupByDate, groupByDateReturn } from '@/lib/utils';
 import { useState, useEffect } from 'react';
 import "@/style/index.css"
 function Game() {
   const [data, setData] = useState<groupByDateReturn[]>([])
   useEffect(() => {
     // @ts-ignore
-    useFetch<groupByDatePara[]>('http://101.43.206.247:3230/game-files/list').then(res => {
+    useFetch<useFetchResponse<groupByDatePara[]>>('http://101.43.206.247:3230/game-files/list').then(res => {
       setData(groupByDate(res.data))
     })
   }, [])

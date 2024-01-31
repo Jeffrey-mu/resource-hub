@@ -1,0 +1,12 @@
+{
+  "name": "better-mobile-inputs",
+  "desc": "Get previews of HTML element with \"type\", \"inputmode\" and \"autocomplete\" attributes.",
+  "url": "https://better-mobile-inputs.netlify.app",
+  "tags": [
+    "HTML"
+  ],
+  "maintainers": [
+    "aholachek"
+  ],
+  "addedAt": "2023-03-03"
+}

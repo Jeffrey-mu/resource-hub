@@ -1,0 +1,10 @@
+{
+  "name": "SSL Checker",
+  "url": "https://decoder.link",
+  "desc": "Check, convert or read your SSL certificate and more",
+  "tags": [
+    "Security"
+  ],
+  "maintainers": [],
+  "addedAt": "2020-01-23"
+}

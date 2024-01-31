@@ -36,11 +36,12 @@ export function groupByDate(data: groupByDatePara[]): groupByDateReturn[] {
     items,
   }));
 }
-type useFetchResponse<T> = { data: T };
+export type useFetchResponse<T> = { data: T };
+
 export async function useFetch<T>(url: string) {
   return (await (
     await fetch(url, {
       cache: 'no-store',
     })
-  ).json()) as useFetchResponse<T>;
+  ).json()) as T;
 }

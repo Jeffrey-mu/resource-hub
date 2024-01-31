@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import { nextui } from "@nextui-org/react";
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -6,6 +7,7 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   prefix: "",
   theme: {
@@ -73,5 +75,18 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  screens: {
+    'sm': '576px',
+    // => @media (min-width: 576px) { ... }
+
+    'md': '768px',
+    // => @media (min-width: 768px) { ... }
+
+    'lg': '992px',
+    // => @media (min-width: 992px) { ... }
+
+    'xl': '1200px',
+    // => @media (min-width: 1200px) { ... }
+  },
+  plugins: [require("tailwindcss-animate"), nextui()],
 }

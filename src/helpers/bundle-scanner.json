@@ -1,0 +1,13 @@
+{
+  "name": "Bundle Scanner",
+  "desc": "Identify NPM libraries included in Javascript files.",
+  "url": "https://bundlescanner.com/",
+  "tags": [
+    "JavaScript",
+    "npm"
+  ],
+  "maintainers": [
+    "markusenglund"
+  ],
+  "addedAt": "2021-10-28"
+}

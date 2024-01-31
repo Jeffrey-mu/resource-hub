@@ -1,0 +1,13 @@
+{
+  "name": " LCH Colour Picker",
+  "desc": "Convert colors from lch to rgb.",
+  "url": "https://css.land/lch/",
+  "tags": [
+    "CSS",
+    "Color"
+  ],
+  "maintainers": [
+    "LeaVerou"
+  ],
+  "addedAt": "2022-02-15"
+}

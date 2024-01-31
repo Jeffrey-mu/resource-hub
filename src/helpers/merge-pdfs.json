@@ -1,0 +1,10 @@
+{
+  "name": "Merge PDFs",
+  "desc": "Merge PDFs.",
+  "url": "https://localpdf.tech/merge",
+  "tags": [
+    "PDF"
+  ],
+  "maintainers": [],
+  "addedAt": "2021-03-01"
+}

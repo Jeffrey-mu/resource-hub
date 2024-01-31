@@ -1,0 +1,11 @@
+{
+  "name": "Gradient Generator",
+  "desc": "Create CSS gradients.",
+  "url": "https://www.joshwcomeau.com/gradient-generator/",
+  "tags": [
+    "CSS",
+    "Color"
+  ],
+  "maintainers": [],
+  "addedAt": "2022-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "empathyprompts",
+  "desc": "Get ideas to help consider inclusive design principles.",
+  "url": "https://empathyprompts.net/",
+  "tags": [
+    "Accessibility"
+  ],
+  "maintainers": [
+    "ericwbailey"
+  ],
+  "addedAt": "2022-05-06"
+}
+
