@@ -1,0 +1,93 @@
+.max_width {
+    width: min(1400px, 100% - 30px);
+    margin-inline: auto;
+}
+
+.header {
+    .max_width {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.container {
+    padding: 10px;
+    flex: 1;
+    margin: 15px auto;
+    min-height: calc(100vh - (64px + 180px));
+}
+
+.game-list {
+    .game-card {
+        height: fit-content;
+        cursor: pointer;
+        background-color: #fff;
+        text-align: center;
+        width: 150px;
+        font-size: 13px;
+        border-radius: 10px;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        -webket-line-clam: 1;
+        color: #111;
+        img {
+            border-radius: 10px;
+            width: 120px;
+            height: 120px;
+        }
+        transition: all .2s;
+        &:hover {
+            transform: scale(1.05);
+            transition: all .2s;
+            a {
+                text-decoration: underline;
+            }
+        }
+        @media (max-width: 768px) {
+            width: calc(100% / 3 - 30px / 3);
+            img {
+                height: auto;
+            }
+        }
+    }
+}
+
+.play_box {
+    width: 450px;
+    height: 80vh;
+    margin: 20px auto;
+    @media (max-width: 960px) {
+        width: 100%;
+        height: calc(100vh - 90px);
+    }
+}
+
+footer {
+    padding: 20px;
+    height: 180px;
+    background-color: #111;
+    color: #ffffff;
+    ul li {
+        padding: 10px;
+    }
+}
+
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+}
