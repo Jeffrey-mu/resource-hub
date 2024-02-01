@@ -25,7 +25,6 @@
     .game-card {
         height: fit-content;
         cursor: pointer;
-        background-color: #fff;
         text-align: center;
         width: 150px;
         font-size: 13px;
@@ -35,7 +34,6 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         -webket-line-clam: 1;
-        color: #111;
         img {
             border-radius: 10px;
             width: 120px;
@@ -53,6 +51,13 @@
             width: calc(100% / 3 - 30px / 3);
             img {
                 height: auto;
+            }
+            &:hover {
+                transform: none;
+                transition: all .2s;
+                a {
+                    text-decoration: underline;
+                }
             }
         }
     }

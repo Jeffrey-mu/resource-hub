@@ -42,7 +42,7 @@ export default function ResourceCard({ value }: ResourceCardrops) {
   }
   return (
     <>
-      <Card className="w-[400px] justify-between delay-100 transition-all hover:scale-105 delay-100">
+      <Card className="flex-shrink w-full delay-100 transition-all xl:hover:scale-105 delay-100">
         <CardBody>
           <div className="w-full flex">
             <Image

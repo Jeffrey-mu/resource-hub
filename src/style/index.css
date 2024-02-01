@@ -23,7 +23,6 @@
   height: -moz-fit-content;
   height: fit-content;
   cursor: pointer;
-  background-color: #fff;
   text-align: center;
   width: 150px;
   font-size: 13px;
@@ -33,7 +32,6 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   -webket-line-clam: 1;
-  color: #111;
   transition: all 0.2s;
 }
 .game-list .game-card img {
@@ -54,6 +52,13 @@
   }
   .game-list .game-card img {
     height: auto;
+  }
+  .game-list .game-card:hover {
+    transform: none;
+    transition: all 0.2s;
+  }
+  .game-list .game-card:hover a {
+    text-decoration: underline;
   }
 }
 
