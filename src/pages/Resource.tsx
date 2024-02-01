@@ -2,18 +2,18 @@ import ResourceCard, { ResourceCardInfo, formatCountTags } from '@/components/re
 import { useFetch } from '@/lib/utils';
 import { useState, useEffect } from 'react';
 import "@/style/index.css"
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import ResourceSkeleton from '@/components/resource/Skeleton';
 
 function Game() {
   const [data, setData] = useState<ResourceCardInfo[]>([])
-  const [renderData, setRanderData] = useState<ResourceCardInfo[]>([])
+  // const [renderData, setRanderData] = useState<ResourceCardInfo[]>([])
   const [countTags, setCountTags] = useState<Record<string, number>>({})
   const array = new Array(20).join(',').split(',')
   useEffect(() => {
     useFetch<ResourceCardInfo[]>('/data.json').then(res => {
       setTimeout(() => { setData(res) }, 400)
       setCountTags(formatCountTags(res))
+      console.log(countTags)
     })
   }, [])
   return (
