@@ -1,7 +1,7 @@
 
 
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image, Chip } from "@nextui-org/react";
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs'
 export interface ResourceCardInfo {
   name: string,
   data: {
@@ -36,6 +36,10 @@ export function formatCountTags(packageList: ResourceCardInfo[]): Record<string,
 
 export default function ResourceCard({ value }: ResourceCardrops) {
   const { name, desc, url, tags, addedAt } = value.data;
+
+  function formatData(time: string, format: string): string {
+    return dayjs(time).format(format)
+  }
   return (
     <>
       <Card className="w-[400px] justify-between delay-100 transition-all hover:scale-105 delay-100">
@@ -56,10 +60,7 @@ export default function ResourceCard({ value }: ResourceCardrops) {
           <div className="flex flex-col">
             <p className="text-md text-lg">{name}</p>
             <p className="text-small text-default-500">
-
-              {dayjs(addedAt).format('MMM')}
-              &nbsp;
-              {dayjs(addedAt).format('YYYY')}
+              {`${formatData(addedAt, 'MMM')} ${formatData(addedAt, 'YYYY')}`}
             </p>
           </div>
         </CardHeader>
