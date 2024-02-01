@@ -3,41 +3,48 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Switch } from "@nextui-org/react";
+import { VisuallyHidden, useSwitch } from "@nextui-org/react";
 import { MoonIcon } from "./MoonIcon";
 import { SunIcon } from "./SunIcon";
-export function ThemeSwitcher() {
+export function ThemeSwitcher(props: any) {
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
-  function changeTheme(theme: any) {
-    console.log(theme)
-  }
+  const { setTheme } = useTheme()
+  const {
+    Component,
+    slots,
+    isSelected,
+    getBaseProps,
+    getInputProps,
+    getWrapperProps
+  } = useSwitch(props);
   useEffect(() => {
     setMounted(true)
   }, [])
+  useEffect(() => {
+    isSelected ? setTheme('light') : setTheme('dark')
+  }, [isSelected])
 
   if (!mounted) return null
 
   return (
-    <div>
-      <Switch
-        defaultSelected
-        size="lg"
-        color="secondary"
-        value={theme}
-        onChange={(e) => changeTheme(e)}
-        thumbIcon={({ isSelected, className }) => {
-          isSelected ? setTheme('light') : setTheme('dark')
-          return isSelected ? (
-            <SunIcon className={className} />
-          ) : (
-            <MoonIcon className={className} />
-          )
-        }
-        }
-      >
-      </Switch>
-
+    <div className="flex flex-col gap-2">
+      <Component {...getBaseProps()} >
+        <VisuallyHidden>
+          <input {...getInputProps()} />
+        </VisuallyHidden>
+        <div
+          {...getWrapperProps()}
+          className={slots.wrapper({
+            class: [
+              "w-8 h-8",
+              "flex items-center justify-center",
+              "rounded-lg bg-default-100 hover:bg-default-200",
+            ],
+          })}
+        >
+          {isSelected ? <SunIcon /> : <MoonIcon />}
+        </div>
+      </Component>
     </div>
   )
 };
