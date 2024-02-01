@@ -1,6 +1,3 @@
-// app/components/ThemeSwitcher.tsx
-"use client";
-
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { MoonIcon } from "@/components/svg/MoonIcon";
