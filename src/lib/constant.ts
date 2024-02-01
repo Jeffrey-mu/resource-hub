@@ -1,6 +1,6 @@
 interface Config {
-  siteName: string
+  siteName: string;
 }
 export const appConfig: Config = {
-  siteName: 'ResourceHub'
-}
+  siteName: "ResourceHub",
+};

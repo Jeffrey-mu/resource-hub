@@ -1,5 +1,5 @@
-import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -19,7 +19,7 @@ export function groupByDate(data: groupByDatePara[]): groupByDateReturn[] {
   // 遍历传入的数据数组
   data.forEach((item) => {
     // 获取日期字符串
-    const dateStr = item.folderDate.split('T')[0];
+    const dateStr = item.folderDate.split("T")[0];
 
     // 如果 Map 中已经存在该日期的数组，则直接将数据推入数组
     if (groupedData.has(dateStr)) {
@@ -41,7 +41,7 @@ export type useFetchResponse<T> = { data: T };
 export async function useFetch<T>(url: string) {
   return (await (
     await fetch(url, {
-      cache: 'no-store',
+      cache: "no-store",
     })
   ).json()) as T;
 }

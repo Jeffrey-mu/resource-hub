@@ -1,24 +1,32 @@
-
-
-import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image, Chip } from "@nextui-org/react";
-import dayjs from 'dayjs'
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Divider,
+  Link,
+  Image,
+  Chip,
+} from "@nextui-org/react";
+import dayjs from "dayjs";
 export interface ResourceCardInfo {
-  name: string,
+  name: string;
   data: {
-    name: string,
-    desc: string,
-    url: string,
-    tags: string[],
-    maintainers: string[],
-    addedAt: string
-  }
+    name: string;
+    desc: string;
+    url: string;
+    tags: string[];
+    maintainers: string[];
+    addedAt: string;
+  };
 }
 export interface ResourceCardrops {
-  value: ResourceCardInfo
+  value: ResourceCardInfo;
 }
 
-
-export function formatCountTags(packageList: ResourceCardInfo[]): Record<string, number> {
+export function formatCountTags(
+  packageList: ResourceCardInfo[],
+): Record<string, number> {
   const tagCount: Record<string, number> = {};
 
   packageList.forEach((packageInfo) => {
@@ -32,13 +40,11 @@ export function formatCountTags(packageList: ResourceCardInfo[]): Record<string,
   return tagCount;
 }
 
-
-
 export default function ResourceCard({ value }: ResourceCardrops) {
   const { name, desc, url, tags, addedAt } = value.data;
 
   function formatData(time: string, format: string): string {
-    return dayjs(time).format(format)
+    return dayjs(time).format(format);
   }
   return (
     <>
@@ -60,7 +66,7 @@ export default function ResourceCard({ value }: ResourceCardrops) {
           <div className="flex flex-col">
             <p className="text-md text-lg">{name}</p>
             <p className="text-small text-default-500">
-              {`${formatData(addedAt, 'MMM')} ${formatData(addedAt, 'YYYY')}`}
+              {`${formatData(addedAt, "MMM")} ${formatData(addedAt, "YYYY")}`}
             </p>
           </div>
         </CardHeader>
@@ -73,11 +79,9 @@ export default function ResourceCard({ value }: ResourceCardrops) {
         <Divider />
         <CardBody>
           <div className="flex gap-3">
-            {
-              tags.map(item => {
-                return <Chip color="primary"> {item} </Chip>
-              })
-            }
+            {tags.map((item) => {
+              return <Chip color="primary"> {item} </Chip>;
+            })}
           </div>
         </CardBody>
         <Divider />
@@ -88,7 +92,9 @@ export default function ResourceCard({ value }: ResourceCardrops) {
             isExternal
             showAnchorIcon
             href={url}
-          > visit a website
+          >
+            {" "}
+            visit a website
           </Link>
         </CardFooter>
       </Card>
