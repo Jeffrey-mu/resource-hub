@@ -23,21 +23,21 @@ export default function App() {
   });
   const menuItems = [
     {
-      label: "Home",
+      label: "Helpers",
       path: "/",
     },
     {
       label: "Game",
       path: "/game",
     },
-    {
-      label: "About",
-      path: "/about",
-    },
+    // {
+    //   label: "About",
+    //   path: "/about",
+    // },
   ];
 
   return (
-    <Navbar isBordered onMenuOpenChange={setIsMenuOpen}>
+    <Navbar isBordered maxWidth="2xl" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -56,7 +56,7 @@ export default function App() {
           <NavbarItem key={`${item}-${index}`}>
             <NavLink
               className={cn(
-                'w-full"',
+                "w-full hover:text-green-500",
                 `${pathname === item.path ? "text-green-500" : ""}`,
               )}
               to={item.path}

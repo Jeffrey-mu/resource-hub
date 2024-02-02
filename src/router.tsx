@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Game from "@/pages/Game";
-import Resource from "@/pages/Resource";
+import Helpers from "@/pages/Helpers";
+import Contact from "@/pages/Contact";
 import About from "@/pages/About";
 import Layout from "./components/common/Layout";
+import Licensing from "@/pages/Licensing";
 
 const router = createBrowserRouter([
   {
@@ -10,7 +12,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Resource />,
+        element: <Helpers />,
       },
       {
         path: "about",
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       {
         path: "game",
         element: <Game />,
+      },
+      {
+        path: "licensing",
+        element: <Licensing />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
       },
     ],
   },

@@ -17,50 +17,8 @@
 .container {
   padding: 10px;
   flex: 1;
-  margin: 15px auto;
+  margin: auto;
   min-height: calc(100vh - (64px + 180px));
-}
-
-.game-list {
-  .game-card {
-    height: fit-content;
-    cursor: pointer;
-    text-align: center;
-    width: 150px;
-    font-size: 13px;
-    border-radius: 10px;
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    -webket-line-clam: 1;
-    img {
-      border-radius: 10px;
-      width: 120px;
-      height: 120px;
-    }
-    transition: all 0.2s;
-    &:hover {
-      transform: scale(1.05);
-      transition: all 0.2s;
-      a {
-        text-decoration: underline;
-      }
-    }
-    @media (max-width: 768px) {
-      width: calc(100% / 3 - 30px / 3);
-      img {
-        height: auto;
-      }
-      &:hover {
-        transform: none;
-        transition: all 0.2s;
-        a {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
 }
 
 .play_box {

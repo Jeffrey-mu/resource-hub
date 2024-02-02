@@ -28,7 +28,7 @@ function Game() {
           <>
             <div key={item.date}>
               <h2 className="my-3 font-black text-2xl">{item.date}</h2>
-              <div className="game-list flex flex-wrap gap-3 justify-center">
+              <div className="grid grid-cols-3 gap-5 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
                 {item.items.map((game) => (
                   <GameCard value={game} key={game.folderName} />
                 ))}

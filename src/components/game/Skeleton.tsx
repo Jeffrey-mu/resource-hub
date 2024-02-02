@@ -8,7 +8,7 @@ export default function GameSkeleton() {
           <div className="h-3 w-[200px] rounded-lg bg-default-200"></div>
         </Skeleton>
       </h2>
-      <div className="game-list flex flex-wrap gap-3 justify-center">
+      <div className="grid grid-cols-3 gap-5 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
         {array.map((_, index) => {
           return (
             <Card key={index} className="game-card p-4" radius="lg">

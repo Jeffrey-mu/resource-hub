@@ -8,13 +8,13 @@ interface GameCardrops {
 export default function GameCard({ value }: GameCardrops) {
   return (
     <>
-      <Card className="game-card">
-        <CardContent className="px-3 py-3">
+      <Card className="cursor-pointer">
+        <CardContent className="p-3">
           <Drawer>
             <DrawerTrigger asChild>
-              <div>
+              <div className="line-clamp-1 text-center">
                 <img
-                  className="m-auto rounded-lg"
+                  className="w-full rounded-lg"
                   src={`https://res.minigame.vip/gc-assets/${value.folderName.replace(
                     ".apps.minigame.vip",
                     "",
@@ -23,7 +23,9 @@ export default function GameCard({ value }: GameCardrops) {
                   width="100"
                   height="100"
                 />
-                {value.folderName.replace(".apps.minigame.vip", "")}
+                <div className="mt-2">
+                  {value.folderName.replace(".apps.minigame.vip", "")}
+                </div>
               </div>
             </DrawerTrigger>
             <DrawerContent>

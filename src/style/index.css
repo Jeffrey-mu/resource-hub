@@ -15,51 +15,8 @@
 .container {
   padding: 10px;
   flex: 1;
-  margin: 15px auto;
+  margin: auto;
   min-height: calc(100vh - 244px);
-}
-
-.game-list .game-card {
-  height: -moz-fit-content;
-  height: fit-content;
-  cursor: pointer;
-  text-align: center;
-  width: 150px;
-  font-size: 13px;
-  border-radius: 10px;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  -webket-line-clam: 1;
-  transition: all 0.2s;
-}
-.game-list .game-card img {
-  border-radius: 10px;
-  width: 120px;
-  height: 120px;
-}
-.game-list .game-card:hover {
-  transform: scale(1.05);
-  transition: all 0.2s;
-}
-.game-list .game-card:hover a {
-  text-decoration: underline;
-}
-@media (max-width: 768px) {
-  .game-list .game-card {
-    width: calc(33.3333333333% - 10px);
-  }
-  .game-list .game-card img {
-    height: auto;
-  }
-  .game-list .game-card:hover {
-    transform: none;
-    transition: all 0.2s;
-  }
-  .game-list .game-card:hover a {
-    text-decoration: underline;
-  }
 }
 
 .play_box {
@@ -84,20 +41,11 @@ footer ul li {
   padding: 10px;
 }
 
-.fade-enter {
-  opacity: 0;
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 300ms;
+.forward-enter,
+.forward-exit,
+.back-enter,
+.back-exit {
+  position: absolute !important;
+  top: 0;
+  width: 100%;
 } /*# sourceMappingURL=index.css.map */
