@@ -80,7 +80,12 @@ export default function ResourceCard({ value }: ResourceCardrops) {
         <CardBody>
           <div className="flex gap-3">
             {tags.map((item) => {
-              return <Chip color="primary"> {item} </Chip>;
+              return (
+                <Chip color="primary" key={item}>
+                  {" "}
+                  {item}{" "}
+                </Chip>
+              );
             })}
           </div>
         </CardBody>

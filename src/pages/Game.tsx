@@ -1,4 +1,5 @@
 import GameCard from "@/components/game/Card";
+import Skeleton from "@/components/game/Skeleton";
 import { useFetch } from "@/lib/utils";
 import {
   groupByDatePara,
@@ -20,12 +21,14 @@ function Game() {
   }, []);
   return (
     <>
+      {!data.length && <Skeleton />}
+
       {data.map((item) => (
         <div key={item.date}>
           <>
             <div key={item.date}>
               <h2 className="my-3 font-black text-2xl">{item.date}</h2>
-              <div className="game-list flex flex-wrap gap-3">
+              <div className="game-list flex flex-wrap gap-3 justify-center">
                 {item.items.map((game) => (
                   <GameCard value={game} key={game.folderName} />
                 ))}

@@ -1,11 +1,11 @@
 import React from "react";
+import cn from "clsx";
 import { NavLink, useLocation } from "react-router-dom";
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
@@ -54,18 +54,19 @@ export default function App() {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {menuItems.map((item, index) => (
           <NavbarItem key={`${item}-${index}`}>
-            <Link
-              color={pathname === item.path ? "success" : "foreground"}
-              className="w-full"
-              href={item.path}
-              size="md"
+            <NavLink
+              className={cn(
+                'w-full"',
+                `${pathname === item.path ? "text-green-500" : ""}`,
+              )}
+              to={item.path}
             >
               {item.label}
-            </Link>
+            </NavLink>
           </NavbarItem>
         ))}
       </NavbarContent>
-      <NavbarContent justify="end">
+      <NavbarContent justify="end" className="gap-1.5">
         <NavbarItem>
           <NavLink
             to="https://github.com/Jeffrey-mu/developer-tools"
@@ -81,14 +82,15 @@ export default function App() {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={pathname === item.path ? "success" : "foreground"}
-              className="w-full"
-              href={item.path}
-              size="md"
+            <NavLink
+              className={cn(
+                'w-full"',
+                `${pathname === item.path ? "text-green-500" : ""}`,
+              )}
+              to={item.path}
             >
               {item.label}
-            </Link>
+            </NavLink>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
