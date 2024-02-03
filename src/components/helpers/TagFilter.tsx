@@ -17,24 +17,29 @@ export default function TagFilter({
   countTags: Record<string, number>;
   onChildDataChange: (value: string) => void;
 }) {
+  const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState("");
   function handleClick(value: string) {
     setActive(value);
     onChildDataChange(value);
-    handleClose();
+    setIsOpen(false);
   }
-  function handleClose() {}
   return (
-    <Popover backdrop="opaque" onClose={handleClose} placement="bottom">
+    <Popover
+      isOpen={isOpen}
+      onOpenChange={(open) => setIsOpen(open)}
+      backdrop="opaque"
+      placement="bottom"
+    >
       <PopoverTrigger>
-        <Button className="mb-2" color="secondary">
+        <Button color="secondary">
           <b>Tags:</b> {active || "All"}
           <ChevronDownIcon />
         </Button>
       </PopoverTrigger>
       <PopoverContent>
-        <div className="font-bold pt-3">Choose tags that interest you.</div>
-        <div className="flex flex-wrap gap-2 w-full p-3">
+        <div className="font-bold mb-2">Choose tags that interest you.</div>
+        <div className="flex flex-wrap gap-2 w-full max-w-screen-md p-2 ">
           {Object.keys(countTags)
             .sort()
             .map((key) => {
@@ -44,10 +49,11 @@ export default function TagFilter({
                   content={countTags[key]}
                   color={active === key ? "success" : "secondary"}
                   shape="rectangle"
+                  className="text-xs"
                   showOutline={false}
                 >
                   <Chip
-                    className="mx-1.5 mb-2 cursor-pointer"
+                    className="mx-1.5 mb-2 cursor-pointer text-xs"
                     onClick={() => handleClick(key)}
                     key={key}
                     color={active === key ? "success" : "secondary"}

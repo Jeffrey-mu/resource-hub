@@ -82,7 +82,7 @@ export default function HelpersCard({ value }: HelpersCardrops) {
           <div className="flex gap-3">
             {tags.map((item) => {
               return (
-                <Chip color="primary" key={item}>
+                <Chip color="secondary" key={item}>
                   {" "}
                   {item}{" "}
                 </Chip>
