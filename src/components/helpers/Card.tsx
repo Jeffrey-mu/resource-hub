@@ -28,7 +28,7 @@ export function formatCountTags(
   packageList: HelpersCardInfo[],
 ): Record<string, number> {
   const tagCount: Record<string, number> = {};
-
+  tagCount["All"] = packageList.length;
   packageList.forEach((packageInfo) => {
     const { tags } = packageInfo.data;
 
@@ -48,10 +48,11 @@ export default function HelpersCard({ value }: HelpersCardrops) {
   }
   return (
     <>
-      <Card className="flex-shrink w-full delay-100 transition-all xl:hover:scale-105 delay-100">
+      <Card className="flex-shrink w-full">
         <CardBody>
           <div className="w-full flex">
             <Image
+              isZoomed
               className="w-full h-full"
               alt="网站截图"
               radius="sm"
