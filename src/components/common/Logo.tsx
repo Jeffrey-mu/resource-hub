@@ -1,11 +1,15 @@
 export default function Logo() {
   return (
-    <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
+    <svg
+      className="-rotate-45 mr-2"
+      xmlns="http://www.w3.org/2000/svg"
+      width="25"
+      height="25"
+      viewBox="0 0 16 16"
+    >
       <path
-        clipRule="evenodd"
-        d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
         fill="currentColor"
-        fillRule="evenodd"
+        d="M2.87 2.298a.75.75 0 0 0-.812 1.021L3.39 6.624a1 1 0 0 0 .928.626H8.25a.75.75 0 0 1 0 1.5H4.318a1 1 0 0 0-.927.626l-1.333 3.305a.75.75 0 0 0 .811 1.022a24.89 24.89 0 0 0 11.668-5.115a.75.75 0 0 0 0-1.175A24.89 24.89 0 0 0 2.869 2.298"
       />
     </svg>
   );
