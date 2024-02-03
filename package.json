@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
+    "@uidotdev/usehooks": "^2.4.1",
+    "@uiw/react-back-to-top": "^1.2.3",
     "algoliasearch": "^4.22.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
