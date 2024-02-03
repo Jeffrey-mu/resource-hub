@@ -16,8 +16,10 @@ function Helpers() {
   const [page, setPage] = useState(0);
   useEffect(() => {
     useFetch<HelpersCardInfo[]>("/data.json").then((res) => {
-      setData(res);
-      setRanderData(res);
+      setTimeout(() => {
+        setData(res);
+        setRanderData(res);
+      }, 200)
       setCountTags(formatCountTags(res));
     });
   }, []);
@@ -39,7 +41,7 @@ function Helpers() {
           countTags={countTags}
           onChildDataChange={(value) => set(value)}
         />
-        {getTotalPages() && (
+        {getTotalPages() ? (
           <Pagination
             showControls
             total={getTotalPages()}
@@ -47,7 +49,7 @@ function Helpers() {
             page={page + 1}
             onChange={changePagination}
           />
-        )}
+        ): <></>}
       </div>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {!data.length && <HelpersSkeleton />}
