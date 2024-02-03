@@ -8,9 +8,10 @@ import "@/style/index.css";
 import HelpersSkeleton from "@/components/helpers/Skeleton";
 import TagFilter from "@/components/helpers/TagFilter";
 import { Card, CardBody, Pagination } from "@nextui-org/react";
-import { useWindowScroll } from "@uidotdev/usehooks";
+import { useWindowScroll, useMediaQuery } from "@uidotdev/usehooks";
 const limit = 8;
 function Helpers() {
+  const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
   const [, scrollTo] = useWindowScroll();
   const [data, setData] = useState<HelpersCardInfo[]>([]);
   const [renderData, setRanderData] = useState<HelpersCardInfo[]>([]);
@@ -53,6 +54,8 @@ function Helpers() {
               />
               {getTotalPages() ? (
                 <Pagination
+                  loop
+                  isCompact={isSmallDevice}
                   showControls
                   total={getTotalPages()}
                   initialPage={1}

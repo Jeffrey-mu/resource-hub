@@ -6,10 +6,9 @@ import {
   Chip,
   Badge,
 } from "@nextui-org/react";
-
 import { ChevronDownIcon } from "./ChevronDownIcon";
 import { useState } from "react";
-
+import { useMediaQuery } from "@uidotdev/usehooks";
 export default function TagFilter({
   countTags,
   onChildDataChange,
@@ -17,6 +16,7 @@ export default function TagFilter({
   countTags: Record<string, number>;
   onChildDataChange: (value: string) => void;
 }) {
+  const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState("");
   function handleClick(value: string) {
@@ -32,8 +32,15 @@ export default function TagFilter({
       placement="bottom"
     >
       <PopoverTrigger>
-        <Button color="secondary">
-          <b>Tags:</b> {active || "All"}
+        <Button color="secondary" size={isSmallDevice ? "sm" : "md"}>
+          {isSmallDevice ? (
+            <></>
+          ) : (
+            <>
+              <b>Tags:</b>
+              {active || "All"}
+            </>
+          )}
           <ChevronDownIcon />
         </Button>
       </PopoverTrigger>
