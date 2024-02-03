@@ -4,6 +4,7 @@ import {
   PopoverContent,
   Button,
   Chip,
+  Badge,
 } from "@nextui-org/react";
 
 import { ChevronDownIcon } from "./ChevronDownIcon";
@@ -24,12 +25,7 @@ export default function TagFilter({
   }
   function handleClose() {}
   return (
-    <Popover
-      backdrop="opaque"
-      onClose={handleClose}
-      placement="bottom"
-      offset={10}
-    >
+    <Popover backdrop="opaque" onClose={handleClose} placement="bottom">
       <PopoverTrigger>
         <Button className="mb-2" color="secondary">
           <b>Tags:</b> {active || "All"}
@@ -43,16 +39,22 @@ export default function TagFilter({
             .sort()
             .map((key) => {
               return (
-                <Chip
-                  onClick={() => handleClick(key)}
-                  className="hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer"
-                  color={active === key ? "primary" : "default"}
+                <Badge
                   key={key}
+                  content={countTags[key]}
+                  color={active === key ? "success" : "secondary"}
+                  shape="rectangle"
+                  showOutline={false}
                 >
-                  {key}
-                  &nbsp;
-                  <span>({countTags[key]})</span>
-                </Chip>
+                  <Chip
+                    className="mx-1.5 mb-2 cursor-pointer"
+                    onClick={() => handleClick(key)}
+                    key={key}
+                    color={active === key ? "success" : "secondary"}
+                  >
+                    {key}
+                  </Chip>
+                </Badge>
               );
             })}
         </div>
