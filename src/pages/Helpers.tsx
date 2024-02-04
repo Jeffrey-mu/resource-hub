@@ -40,7 +40,7 @@ function Helpers() {
   }
   return (
     <>
-      <div className="fixed z-30 bottom-5 w-full flex justify-center pointer-events-none">
+      <div className="fixed z-30 left-0 bottom-5 w-full flex justify-center pointer-events-none">
         <Card
           isBlurred
           className="border-none bg-background/60 dark:bg-default-100/50 max-w-[610px]"
