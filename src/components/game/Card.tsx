@@ -20,7 +20,7 @@ export default function GameCard({ value }: GameCardrops) {
                 <Image
                   isZoomed
                   className="w-full rounded-lg"
-                  src={`${game_service_path}/assets/H5-1/${get_game_path(value.folderName)}.png`}
+                  src={`${game_service_path}/s-assets/H5-1/${get_game_path(value.folderName)}.png`}
                   alt=""
                   width="100"
                   height="100"
