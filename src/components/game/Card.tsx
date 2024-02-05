@@ -30,7 +30,7 @@ export default function GameCard({ value }: GameCardrops) {
             </DrawerTrigger>
             <DrawerContent>
               <iframe
-                src={`${game_service_path}/games/${value.folderName}/minigame-index.html`}
+                src={`${game_service_path}/games/${value.folderName}/index.html`}
                 className="play_box"
               />
             </DrawerContent>
