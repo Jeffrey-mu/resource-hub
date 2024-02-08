@@ -45,3 +45,5 @@ export async function useFetch<T>(url: string) {
     })
   ).json()) as T;
 }
+// @ts-ignore
+export const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json())
