@@ -1,6 +1,5 @@
 ## Projects
 
-
 ### Bean Mapping
 
 _Frameworks that ease bean mapping._

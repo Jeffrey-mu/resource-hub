@@ -3,37 +3,37 @@ import got from "got";
 import MarkdownIt from "markdown-it";
 import dayjs from "dayjs";
 import { join } from "path";
-import { get_absolute_path } from './utils.js';
+import { get_absolute_path } from "./utils.js";
 export const resource_list = {
   "awesome-nodejs": {
     name: "awesome-nodejs",
     href: `https://raw.githubusercontent.com/sindresorhus/awesome-nodejs/main/readme.md`,
-    split: "Packages"
+    split: "Packages",
   },
   "awesome-javascript": {
     name: "awesome-javascript",
     href: "https://raw.githubusercontent.com/sorrycc/awesome-javascript/master/README.md",
-    split: "Package Managers"
+    split: "Package Managers",
   },
   "awesome-python": {
     name: "awesome-python",
     href: "https://raw.githubusercontent.com/vinta/awesome-python/master/README.md",
-    split: "Admin Panels"
+    split: "Admin Panels",
   },
   "awesome-go": {
     name: "awesome-go",
     href: "https://raw.githubusercontent.com/avelino/awesome-go/main/README.md",
-    split: "Artificial Intelligence"
+    split: "Artificial Intelligence",
   },
   "awesome-java": {
     name: "awesome-java",
     href: "https://raw.githubusercontent.com/akullpp/awesome-java/master/README.md",
-    split: "Projects"
+    split: "Projects",
   },
   "awesome-vue": {
     name: "awesome-vue",
     href: "https://raw.githubusercontent.com/vuejs/awesome-vue/master/README.md",
-    split: "Resources"
+    split: "Resources",
   },
 };
 
@@ -86,19 +86,19 @@ export async function get_awesome_readme(key) {
             desc,
           },
         });
-      } catch (e) { }
+      } catch (e) {}
     }
   });
   if (packages.length) {
-    const current_time = dayjs().format('MM/DD/YYYY').replaceAll('/', '-')
-    const write_file_name =  `../../../public/awesome/`
-    const history_dir = join(__dirname, `${write_file_name}${current_time}`)
+    const current_time = dayjs().format("MM/DD/YYYY").replaceAll("/", "-");
+    const write_file_name = `../../../public/awesome/`;
+    const history_dir = join(__dirname, `${write_file_name}${current_time}`);
     fs.writeFileSync(
       join(__dirname, `${write_file_name}${resource.name}.json`),
       JSON.stringify(packages),
     );
     if (!fs.existsSync(history_dir)) {
-      fs.mkdirSync(history_dir)
+      fs.mkdirSync(history_dir);
     }
     fs.writeFileSync(
       `${history_dir}/${resource.name}.json`,
