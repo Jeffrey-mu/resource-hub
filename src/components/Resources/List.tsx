@@ -17,21 +17,25 @@ function App({ render_data }: { render_data: string }) {
   const [renderData, setRanderData] = useState<ResourcesCardInfo[]>([]);
   const [countTags, setCountTags] = useState<Record<string, number>>({});
   const [page, setPage] = useState(0);
-  const { data } = useSWR<ResourcesCardInfo[]>(`/awesome/${render_data}.json`, fetcher)
+  const { data } = useSWR<ResourcesCardInfo[]>(
+    `/awesome/${render_data}.json`,
+    fetcher,
+  );
 
   useEffect(() => {
     if (data) {
       setTimeout(() => {
         setRanderData(data);
+        setCountTags(formatCountTags(data));
       }, 200);
-      setCountTags(formatCountTags(data));
     }
   }, [data]);
   function set(value: string) {
     if (data)
       if (value === "All") {
         setRanderData(data);
-      } else setRanderData(data.filter((item) => item.data.tags.includes(value)));
+      } else
+        setRanderData(data.filter((item) => item.data.tags.includes(value)));
   }
   function changePagination(number: number) {
     setPage(number - 1);
@@ -73,10 +77,13 @@ function App({ render_data }: { render_data: string }) {
       </div>
 
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {data && !data.length && <ResourcesSkeleton />}
-        {renderData.slice(page, page + 1 * limit).map((item, index) => {
-          return <ResourcesCard value={item} key={index} />;
-        })}
+        {!renderData.length ? (
+          <ResourcesSkeleton />
+        ) : (
+          renderData.slice(page, page + 1 * limit).map((item, index) => {
+            return <ResourcesCard value={item} key={index} />;
+          })
+        )}
       </div>
     </>
   );
