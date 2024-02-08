@@ -1,18 +1,12 @@
 import fs from "fs";
+import { get_awesome_readme, resource_list } from "./lib/get_awesome_from_github.js";
+import { generate_data } from './lib/generate_helpers_data.js'
 
-function generate_data() {
-  let file_list = fs
-    .readdirSync("../helpers")
-    .filter((item) => item.endsWith(".json"));
-  const data = file_list.map((item) => {
-    return {
-      name: item,
-      data: JSON.parse(
-        fs.readFileSync("../helpers/" + item, "utf8").toString(),
-      ),
-    };
+function write_json() {
+  generate_data()
+  Object.keys(resource_list).map((key) => {
+    get_awesome_readme(key);
   });
-  fs.writeFileSync("../../public/data.json", JSON.stringify(data));
 }
 
-generate_data();
+write_json()
