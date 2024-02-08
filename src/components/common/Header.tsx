@@ -9,8 +9,11 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
+  Tooltip,
+  Listbox,
+  ListboxItem,
 } from "@nextui-org/react";
-import { appConfig } from "@/lib/constant";
+import { appConfig, menuItems } from "@/lib/constant";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher/Index.tsx";
 import { Github } from "@/components/svg/Github";
 import Logo from "./Logo";
@@ -21,21 +24,6 @@ export default function App() {
   React.useEffect(() => {
     setPathname(location.pathname);
   });
-  const menuItems = [
-    {
-      label: "Helpers",
-      path: "/",
-    },
-    {
-      label: "Game",
-      path: "/game",
-    },
-    // {
-    //   label: "About",
-    //   path: "/about",
-    // },
-  ];
-
   return (
     <Navbar isBordered maxWidth="2xl" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
@@ -54,15 +42,66 @@ export default function App() {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {menuItems.map((item, index) => (
           <NavbarItem key={`${item}-${index}`}>
-            <NavLink
-              className={cn(
-                "w-full hover:text-green-500",
-                `${pathname === item.path ? "text-green-500" : ""}`,
-              )}
-              to={item.path}
-            >
-              {item.label}
-            </NavLink>
+            {item.childen?.length ? (
+              <>
+                <Tooltip
+                  delay={0}
+                  closeDelay={0}
+                  content={
+                    <Listbox aria-label="Actions" className="">
+                      {item.childen?.map((child) => (
+                        <ListboxItem key={child.path}>
+                          <NavLink
+                            className={cn(
+                              "hover:text-green-500 h-6 w-[150px] block",
+                              `${pathname === child.path ? "text-green-500" : ""}`,
+                            )}
+                            to={child.path}
+                          >
+                            {child.label}
+                          </NavLink>
+                        </ListboxItem>
+                      ))}
+                    </Listbox>
+                  }
+                  showArrow
+                >
+                  <span
+                    className={cn(
+                      "cursor-pointer flex items-center",
+                      `${pathname.includes("awesome") ? "text-green-500" : ""}`,
+                    )}
+                  >
+                    {item.label}{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m7 10l5 5l5-5"
+                      />
+                    </svg>
+                  </span>
+                </Tooltip>
+              </>
+            ) : (
+              <NavLink
+                className={cn(
+                  "w-full hover:text-green-500",
+                  `${pathname === item.path ? "text-green-500" : ""}`,
+                )}
+                to={item.path}
+              >
+                {item.label}
+              </NavLink>
+            )}
           </NavbarItem>
         ))}
       </NavbarContent>
