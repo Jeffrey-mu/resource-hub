@@ -2,16 +2,6 @@
   overflow: hidden;
 }
 
-.max_width {
-  width: min(1400px, 100% - 30px);
-  margin-inline: auto;
-}
-
-.header .max_width {
-  display: flex;
-  justify-content: space-between;
-}
-
 .container {
   padding: 10px;
   flex: 1;
@@ -29,23 +19,4 @@
     width: 100%;
     height: calc(100vh - 90px);
   }
-}
-
-footer {
-  padding: 20px;
-  height: 180px;
-  background-color: #111;
-  color: #ffffff;
-}
-footer ul li {
-  padding: 10px;
-}
-
-.forward-enter,
-.forward-exit,
-.back-enter,
-.back-exit {
-  position: absolute !important;
-  top: 0;
-  width: 100%;
 } /*# sourceMappingURL=index.css.map */

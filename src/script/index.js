@@ -13,3 +13,5 @@ function write_json() {
 }
 
 write_json();
+
+// get_awesome_readme('awesome-go')

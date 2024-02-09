@@ -70,7 +70,7 @@ export default function App() {
                           <ListboxItem key={child.path}>
                             <NavLink
                               className={cn(
-                                "hover:text-blue-500 h-6 w-full block text-sm",
+                                "hover:text-blue-500 h-6 w-full block text-sm h",
                                 `${pathname === child.path ? "text-blue-500" : ""}`,
                               )}
                               to={child.path}

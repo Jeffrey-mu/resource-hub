@@ -208,7 +208,7 @@
 - [Express](https://github.com/expressjs/express) - Web application framework, providing a robust set of features for building single and multi-page, and hybrid web applications.
 - [Feathers](https://github.com/feathersjs/feathers) - Microservice framework built in the spirit of Express.
 - [LoopBack](https://github.com/loopbackio/loopback-next) - Powerful framework for creating REST APIs and easily connecting to backend data sources.
-- [Meteor](https://github.com/meteor/meteor) - An ultra-simple, database-everywhere, data-on-the-wire, pure-Javascript web framework. _(You might like [awesome-meteor](https://github.com/Urigo/awesome-meteor))_
+- [Meteor](https://github.com/meteor/meteor) - An ultra-simple, database-everywhere, data-on-the-wire, pure-Javascript web framework. *(You might like [awesome-meteor](https://github.com/Urigo/awesome-meteor))*
 - [Restify](https://github.com/restify/node-restify) - Enables you to build correct REST web services.
 - [ThinkJS](https://github.com/thinkjs/thinkjs) - Framework with ES2015+ support, WebSockets, REST API.
 - [ActionHero](https://github.com/actionhero/actionhero) - Framework for making reusable & scalable APIs for TCP sockets, WebSockets, and HTTP clients.
@@ -220,7 +220,7 @@
 - [Tinyhttp](https://github.com/tinyhttp/tinyhttp) - Modern and fast Express-like web framework.
 - [Marble.js](https://github.com/marblejs/marble) - Functional reactive framework for building server-side apps, based on TypeScript and RxJS.
 - [Lad](https://github.com/ladjs/lad) - Framework made by a former Express TC and Koa member that bundles web, API, job, and proxy servers.
-- [Ts.ED](https://github.com/tsedio/tsed) - Intituive TypeScript framework for building server-side apps on top of Express.js or Koa.js.
+- [Ts.ED](https://github.com/tsedio/tsed) - Intituive TypeScript framework for building server-side apps on top of Express.js or Koa.js. 
 
 ### Documentation
 
@@ -251,18 +251,18 @@
 ### Control flow
 
 - Promises
-  - [pify](https://github.com/sindresorhus/pify) - Promisify a callback-style function.
-  - [delay](https://github.com/sindresorhus/delay) - Delay a promise a specified amount of time.
-  - [promise-memoize](https://github.com/nodeca/promise-memoize) - Memoize promise-returning functions, with expire and prefetch.
-  - [valvelet](https://github.com/lpinca/valvelet) - Limit the execution rate of a promise-returning function.
-  - [p-map](https://github.com/sindresorhus/p-map) - Map over promises concurrently.
-  - [More…](https://github.com/sindresorhus/promise-fun)
+	- [pify](https://github.com/sindresorhus/pify) - Promisify a callback-style function.
+	- [delay](https://github.com/sindresorhus/delay) - Delay a promise a specified amount of time.
+	- [promise-memoize](https://github.com/nodeca/promise-memoize) - Memoize promise-returning functions, with expire and prefetch.
+	- [valvelet](https://github.com/lpinca/valvelet) - Limit the execution rate of a promise-returning function.
+	- [p-map](https://github.com/sindresorhus/p-map) - Map over promises concurrently.
+	- [More…](https://github.com/sindresorhus/promise-fun)
 - Observables
-  - [RxJS](https://github.com/ReactiveX/RxJS) - Reactive programming.
-  - [observable-to-promise](https://github.com/sindresorhus/observable-to-promise) - Convert an Observable to a Promise.
-  - [More…](https://github.com/sindresorhus/awesome-observables)
+	- [RxJS](https://github.com/ReactiveX/RxJS) - Reactive programming.
+	- [observable-to-promise](https://github.com/sindresorhus/observable-to-promise) - Convert an Observable to a Promise.
+	- [More…](https://github.com/sindresorhus/awesome-observables)
 - Streams
-  - [Highland.js](https://github.com/caolan/highland) - Manages synchronous and asynchronous code easily, using nothing more than standard JavaScript and Node-like Streams.
+	- [Highland.js](https://github.com/caolan/highland) - Manages synchronous and asynchronous code easily, using nothing more than standard JavaScript and Node-like Streams.
 
 ### Streams
 
@@ -422,37 +422,37 @@
 ### Database
 
 - Drivers
-  - [PostgreSQL](https://github.com/brianc/node-postgres) - PostgreSQL client. Pure JavaScript and native libpq bindings.
-  - [Redis](https://github.com/luin/ioredis) - Redis client.
-  - [LevelUP](https://github.com/Level/levelup) - LevelDB.
-  - [MySQL](https://github.com/mysqljs/mysql) - MySQL client.
-  - [couchdb-nano](https://github.com/apache/couchdb-nano) - CouchDB client.
-  - [Aerospike](https://github.com/aerospike/aerospike-client-nodejs) - Aerospike client.
-  - [Couchbase](https://github.com/couchbase/couchnode) - Couchbase client.
-  - [MongoDB](https://github.com/mongodb/node-mongodb-native) - MongoDB driver.
+	- [PostgreSQL](https://github.com/brianc/node-postgres) - PostgreSQL client. Pure JavaScript and native libpq bindings.
+	- [Redis](https://github.com/luin/ioredis) - Redis client.
+	- [LevelUP](https://github.com/Level/levelup) - LevelDB.
+	- [MySQL](https://github.com/mysqljs/mysql) - MySQL client.
+	- [couchdb-nano](https://github.com/apache/couchdb-nano) - CouchDB client.
+	- [Aerospike](https://github.com/aerospike/aerospike-client-nodejs) - Aerospike client.
+	- [Couchbase](https://github.com/couchbase/couchnode) - Couchbase client.
+	- [MongoDB](https://github.com/mongodb/node-mongodb-native) - MongoDB driver.
 - ODM / ORM
-  - [Sequelize](https://github.com/sequelize/sequelize) - Multi-dialect ORM. Supports PostgreSQL, SQLite, MySQL, and more.
-  - [Bookshelf](https://github.com/bookshelf/bookshelf) - ORM for PostgreSQL, MySQL and SQLite3 in the style of Backbone.js.
-  - [Mongoose](https://github.com/Automattic/mongoose) - Elegant MongoDB object modeling.
-  - [Waterline](https://github.com/balderdashy/waterline) - Datastore-agnostic tool that dramatically simplifies interaction with one or more databases.
-  - [OpenRecord](https://github.com/PhilWaldmann/openrecord) - ORM for PostgreSQL, MySQL, SQLite3 and RESTful datastores. Similar to ActiveRecord.
-  - [pg-promise](https://github.com/vitaly-t/pg-promise) - PostgreSQL framework for native SQL using promises.
-  - [slonik](https://github.com/gajus/slonik) - PostgreSQL client with strict types, detailed logging and assertions.
-  - [Objection.js](https://github.com/Vincit/objection.js) - Lightweight ORM built on the SQL query builder Knex.
-  - [TypeORM](https://github.com/typeorm/typeorm) - ORM for PostgreSQL, MariaDB, MySQL, SQLite, and more.
-  - [MikroORM](https://github.com/mikro-orm/mikro-orm) - TypeScript ORM based on Data Mapper, Unit of Work and Identity Map patterns. Supports MongoDB, PostgreSQL, MySQL and SQLite.
-  - [Prisma](https://github.com/prisma/prisma) - Modern database access (ORM alternative). Auto-generated and type-safe query builder in TypeScript. Supports PostgreSQL, MySQL & SQLite.
+	- [Sequelize](https://github.com/sequelize/sequelize) - Multi-dialect ORM. Supports PostgreSQL, SQLite, MySQL, and more.
+	- [Bookshelf](https://github.com/bookshelf/bookshelf) - ORM for PostgreSQL, MySQL and SQLite3 in the style of Backbone.js.
+	- [Mongoose](https://github.com/Automattic/mongoose) - Elegant MongoDB object modeling.
+	- [Waterline](https://github.com/balderdashy/waterline) - Datastore-agnostic tool that dramatically simplifies interaction with one or more databases.
+	- [OpenRecord](https://github.com/PhilWaldmann/openrecord) - ORM for PostgreSQL, MySQL, SQLite3 and RESTful datastores. Similar to ActiveRecord.
+	- [pg-promise](https://github.com/vitaly-t/pg-promise) - PostgreSQL framework for native SQL using promises.
+	- [slonik](https://github.com/gajus/slonik) - PostgreSQL client with strict types, detailed logging and assertions.
+	- [Objection.js](https://github.com/Vincit/objection.js) - Lightweight ORM built on the SQL query builder Knex.
+	- [TypeORM](https://github.com/typeorm/typeorm) - ORM for PostgreSQL, MariaDB, MySQL, SQLite, and more.
+	- [MikroORM](https://github.com/mikro-orm/mikro-orm) - TypeScript ORM based on Data Mapper, Unit of Work and Identity Map patterns. Supports MongoDB, PostgreSQL, MySQL and SQLite.
+	- [Prisma](https://github.com/prisma/prisma) - Modern database access (ORM alternative). Auto-generated and type-safe query builder in TypeScript. Supports PostgreSQL, MySQL & SQLite.
 - Query builder
-  - [Knex](https://github.com/knex/knex) - Query builder for PostgreSQL, MySQL and SQLite3, designed to be flexible, portable, and fun to use.
+	- [Knex](https://github.com/knex/knex) - Query builder for PostgreSQL, MySQL and SQLite3, designed to be flexible, portable, and fun to use.
 - Other
-  - [NeDB](https://github.com/louischatriot/nedb) - Embedded persistent database written in JavaScript.
-  - [Lowdb](https://github.com/typicode/lowdb) - Small JavaScript database powered by Lodash.
-  - [Keyv](https://github.com/jaredwray/keyv) - Simple key-value storage with support for multiple backends.
-  - [Finale](https://github.com/tommybananas/finale) - RESTful endpoint generator for your Sequelize models.
-  - [database-js](https://github.com/mlaanderson/database-js) - Wrapper for multiple databases with a JDBC-like connection.
-  - [Mongo Seeding](https://github.com/pkosiec/mongo-seeding) - Populate MongoDB databases with JavaScript and JSON files.
-  - [@databases](https://github.com/ForbesLindesay/atdatabases) - Query PostgreSQL, MySQL and SQLite3 with plain SQL without risking SQL injection.
-  - [pg-mem](https://github.com/oguimbal/pg-mem) - In-memory PostgreSQL instance for your tests.
+	- [NeDB](https://github.com/louischatriot/nedb) - Embedded persistent database written in JavaScript.
+	- [Lowdb](https://github.com/typicode/lowdb) - Small JavaScript database powered by Lodash.
+	- [Keyv](https://github.com/jaredwray/keyv) - Simple key-value storage with support for multiple backends.
+	- [Finale](https://github.com/tommybananas/finale) - RESTful endpoint generator for your Sequelize models.
+	- [database-js](https://github.com/mlaanderson/database-js) - Wrapper for multiple databases with a JDBC-like connection.
+	- [Mongo Seeding](https://github.com/pkosiec/mongo-seeding) - Populate MongoDB databases with JavaScript and JSON files.
+	- [@databases](https://github.com/ForbesLindesay/atdatabases) - Query PostgreSQL, MySQL and SQLite3 with plain SQL without risking SQL injection.
+	- [pg-mem](https://github.com/oguimbal/pg-mem) - In-memory PostgreSQL instance for your tests.
 
 ### Testing
 
@@ -661,7 +661,7 @@
 - [npm](https://docs.npmjs.com/about-npm) - The default package manager.
 - [pnpm](https://pnpm.io) - Disk space efficient package manager.
 - [yarn](https://yarnpkg.com) - Alternative package manager.
-- [bun](https://bun.sh) - All-in-one toolkit for JavaScript and TypeScript apps.
+- [bun](https://bun.sh) - All-in-one toolkit for JavaScript and TypeScript apps. 
 
 ## Resources
 

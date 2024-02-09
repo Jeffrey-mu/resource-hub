@@ -9,6 +9,7 @@ import Python from "@/pages/Awesome/Python";
 import Go from "@/pages/Awesome/Go";
 import Java from "@/pages/Awesome/Java";
 import Vue from "@/pages/Awesome/Vue";
+import React from "@/pages/Awesome/React";
 interface Config {
   siteName: string;
 }
@@ -70,6 +71,11 @@ export const menuItems: MenuItems = [
         label: "Vue",
         path: "/awesome-vue",
         element: <Vue />,
+      },
+      {
+        label: "React",
+        path: "/awesome-React",
+        element: <React />,
       },
     ],
   },

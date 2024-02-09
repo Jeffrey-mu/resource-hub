@@ -8,32 +8,37 @@ export const resource_list = {
   "awesome-nodejs": {
     name: "awesome-nodejs",
     href: `https://raw.githubusercontent.com/sindresorhus/awesome-nodejs/main/readme.md`,
-    split: "Packages",
+    split: "## Packages",
   },
   "awesome-javascript": {
     name: "awesome-javascript",
     href: "https://raw.githubusercontent.com/sorrycc/awesome-javascript/master/README.md",
-    split: "Package Managers",
+    split: "## Package Managers",
   },
   "awesome-python": {
     name: "awesome-python",
     href: "https://raw.githubusercontent.com/vinta/awesome-python/master/README.md",
-    split: "Admin Panels",
+    split: "## Admin Panels",
   },
   "awesome-go": {
     name: "awesome-go",
     href: "https://raw.githubusercontent.com/avelino/awesome-go/main/README.md",
-    split: "Artificial Intelligence",
+    split: "## Artificial Intelligence",
   },
   "awesome-java": {
     name: "awesome-java",
     href: "https://raw.githubusercontent.com/akullpp/awesome-java/master/README.md",
-    split: "Projects",
+    split: "## Projects",
   },
   "awesome-vue": {
     name: "awesome-vue",
     href: "https://raw.githubusercontent.com/vuejs/awesome-vue/master/README.md",
-    split: "Resources",
+    split: "## Resources",
+  },
+  "awesome-react": {
+    name: "awesome-react",
+    href: "https://raw.githubusercontent.com/enaqx/awesome-react/master/README.md",
+    split: "### React",
   },
 };
 
@@ -42,12 +47,17 @@ export async function get_awesome_readme(key) {
   const { __dirname } = get_absolute_path();
   const { body } = await got.get(resource.href);
   let split_title = resource.split;
-  let markdownText = `## ${split_title}\n${body.split(`## ${split_title}`)[1]}`;
+  let markdownText = `${split_title}\n${body.split(`${split_title}\n`)[1]}`;
+
   if (key === "awesome-javascript") {
     markdownText = markdownText
       .split("# Other Awesome Lists")[0]
       .replaceAll("*", "-");
+  } else if (key === "awesome-react") {
+    markdownText = markdownText
+      .split("### Contribution")[0]
   }
+
   fs.writeFileSync(join(__dirname, `./${resource.name}.md`), markdownText);
 
   const md = new MarkdownIt();
@@ -56,7 +66,7 @@ export async function get_awesome_readme(key) {
   const packages = [];
   let type = [];
   let clear = false;
-  tokens.forEach((token) => {
+  tokens.forEach((token, index) => {
     if (
       token.children &&
       token.children.length === 1 &&
@@ -70,10 +80,10 @@ export async function get_awesome_readme(key) {
         type = [];
       }
       type.push(token.content.trim());
-    } else if (token.type === "inline" && token.children.length === 4) {
+    } else if (token.type === "inline" && (token.children.length === 4 || token.children.length === 3)) {
       try {
         clear = true;
-        const desc = token.children[3].content;
+        const desc = token.children[token.children.length === 3 ? 1 : 3].content;
         const name = token.children[1].content;
         const url = token.children[0].attrs[0][1];
         packages.push({
@@ -86,7 +96,7 @@ export async function get_awesome_readme(key) {
             desc,
           },
         });
-      } catch (e) {}
+      } catch (e) { }
     }
   });
   if (packages.length) {
