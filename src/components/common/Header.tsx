@@ -36,7 +36,7 @@ export default function App() {
     setPathname(location.pathname);
   });
   function sub_menu(item: MenuItem, type: "params" | "children") {
-    const sub_menus = item[type] || []; // 如果item[type]不存在，则默认为空数组
+    const sub_menus = item[type] || [];
     return (
       <>
         <Tooltip
@@ -97,6 +97,50 @@ export default function App() {
       </>
     );
   }
+  function sub_menu_mob(item: MenuItem, type: "params" | "children") {
+    const sub_menus = item[type] || [];
+    return (
+      <Accordion selectedKeys="all" key={item.path}>
+        <AccordionItem
+          className="py-0"
+          key="1"
+          aria-label={item.label}
+          title={item.label}
+        >
+          {sub_menus.map((child) => {
+            return (
+              <NavbarMenuItem
+                className="px-2"
+                key={`${child.path}`}
+                onClick={(_) => setIsMenuOpen(false)}
+              >
+                <NavLink
+                  className={cn(
+                    `w-full py-2 before:mr-4 before:content-[''] before:block before:bg-default-300 before:w-1 before:h-1 before:rounded-full flex items-center`,
+                    type === "params"
+                      ? pathname ===
+                        item.path.replace(/:(\w+)/, "") + child.label
+                        ? "text-blue-500"
+                        : "text-gray-400"
+                      : pathname === child.path
+                        ? "text-blue-500"
+                        : "text-gray-400",
+                  )}
+                  to={`${
+                    type === "params"
+                      ? item.path.replace(/:(\w+)/, "") + child.label
+                      : child.path
+                  }`}
+                >
+                  {child.label}
+                </NavLink>
+              </NavbarMenuItem>
+            );
+          })}
+        </AccordionItem>
+      </Accordion>
+    );
+  }
 
   return (
     <Navbar
@@ -154,35 +198,10 @@ export default function App() {
       </NavbarContent>
       <NavbarMenu>
         {navMenuItems.map((item, index) =>
-          item?.children?.length ? (
-            <Accordion selectedKeys="all" key={index + item.path}>
-              <AccordionItem
-                className="py-0"
-                key="1"
-                aria-label={item.label}
-                title={item.label}
-              >
-                {item.children.map((child) => {
-                  return (
-                    <NavbarMenuItem
-                      className="px-2"
-                      key={`${child}-${index}`}
-                      onClick={(_) => setIsMenuOpen(false)}
-                    >
-                      <NavLink
-                        className={cn(
-                          `w-full py-2 before:mr-4 before:content-[''] before:block before:bg-default-300 before:w-1 before:h-1 before:rounded-full flex items-center`,
-                          `${pathname === child.path ? "text-blue-500" : "text-gray-600"}`,
-                        )}
-                        to={child.path}
-                      >
-                        {child.label}
-                      </NavLink>
-                    </NavbarMenuItem>
-                  );
-                })}
-              </AccordionItem>
-            </Accordion>
+          item.children.length ? (
+            sub_menu_mob(item, "children")
+          ) : item.params.length ? (
+            sub_menu_mob(item, "params")
           ) : (
             <NavbarMenuItem
               className="px-2"
