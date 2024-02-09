@@ -15,6 +15,7 @@ export const menuItems = [
   {
     label: "Awesome",
     path: "/awesome-nodejs",
+    des: "The Awesome series is a carefully selected resource list that covers various themes and fields.",
     childen: [
       {
         label: "Nodejs",
