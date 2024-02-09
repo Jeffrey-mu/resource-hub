@@ -46,6 +46,12 @@ function App({ render_data }: { render_data: string }) {
   }
   return (
     <>
+      <div className="mb-3 px-2">
+        Tag:{" "}
+        {renderData.length && renderData.length !== data?.length
+          ? renderData[0].data.tags[0]
+          : "All"}
+      </div>
       <div className="fixed z-30 left-0 bottom-5 w-full flex justify-center pointer-events-none">
         <Card
           isBlurred
