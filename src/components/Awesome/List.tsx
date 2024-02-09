@@ -1,12 +1,12 @@
 import ResourcesCard, {
   ResourcesCardInfo,
   formatCountTags,
-} from "@/components/Resources/Card";
+} from "@/components/Awesome/Card";
 import { fetcher } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import "@/style/index.css";
-import ResourcesSkeleton from "@/components/Resources/Skeleton";
-import TagFilter from "@/components/Resources/TagFilter";
+import ResourcesSkeleton from "@/components/Awesome/Skeleton";
+import TagFilter from "@/components/Awesome/TagFilter";
 import { Card, CardBody, Pagination } from "@nextui-org/react";
 import { useWindowScroll, useMediaQuery } from "@uidotdev/usehooks";
 import useSWR from "swr";

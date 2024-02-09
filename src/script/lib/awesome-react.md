@@ -47,7 +47,6 @@
 - [framework7](https://github.com/framework7io/framework7) - Full featured HTML framework for building iOS & Android apps
 - [ariakit](https://github.com/ariakit/ariakit) - Toolkit for building accessible web apps with React
 
-
 #### React State Management and Data Fetching
 
 - [redux](https://github.com/reduxjs/redux) - Predictable State Container for JavaScript Apps
@@ -206,4 +205,3 @@
 
 - [realm-js](https://github.com/realm/realm-js) - A mobile database: an alternative to SQLite & key-value stores
 - [react-native-device-info](https://github.com/react-native-device-info/react-native-device-info) - Device Information for React Native iOS and Android
-

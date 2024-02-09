@@ -16,13 +16,15 @@ import {
   Accordion,
   AccordionItem,
 } from "@nextui-org/react";
-import { appConfig, menuItems } from "@/lib/constant";
+import { appConfig, menuItems, MenuItem } from "@/lib/constant";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher/Index.tsx";
 import { Github } from "@/components/svg/Github";
 import Logo from "./Logo";
+import DownArrow from "../svg/DownArrow";
+
 const navMenuItems = menuItems
-  .map(({ label, path, des = "", hide, children = [] }) => {
-    return { label, path, children, des, hide };
+  .map(({ label, path, des = "", hide, children = [], params = [] }) => {
+    return { label, path, children, des, hide, params };
   })
   .filter((item) => !item?.hide);
 export default function App() {
@@ -33,6 +35,69 @@ export default function App() {
   React.useEffect(() => {
     setPathname(location.pathname);
   });
+  function sub_menu(item: MenuItem, type: "params" | "children") {
+    const sub_menus = item[type] || []; // 如果item[type]不存在，则默认为空数组
+    return (
+      <>
+        <Tooltip
+          delay={0}
+          closeDelay={200}
+          isOpen={isopenTooltip}
+          onOpenChange={(open) => setIsopenTooltip(open)}
+          content={
+            <>
+              <Listbox aria-label="Actions">
+                {sub_menus.map((child) => (
+                  <ListboxItem key={child.path}>
+                    <NavLink
+                      className={cn(
+                        "hover:text-blue-500 h-6 block text-sm w-full",
+                        `${
+                          type === "params"
+                            ? pathname ===
+                              item.path.replace(/:(\w+)/, "") + child.label
+                              ? "text-blue-500"
+                              : ""
+                            : pathname === child.path
+                              ? "text-blue-500"
+                              : ""
+                        }`,
+                      )}
+                      to={`${
+                        type === "params"
+                          ? item.path.replace(/:(\w+)/, "") + child.label
+                          : child.path
+                      }`}
+                    >
+                      {child.label}
+                    </NavLink>
+                  </ListboxItem>
+                ))}
+              </Listbox>
+              <Divider />
+
+              <p className="p-2 text-right rtl:text-left text-gray-500 dark:text-gray-400">
+                {" "}
+                {item.des}
+              </p>
+            </>
+          }
+          showArrow
+        >
+          <span
+            className={cn(
+              "hover:text-blue-500 group cursor-pointer flex items-center text-sm",
+              `${pathname.includes(item.label) ? "text-blue-500" : ""}`,
+            )}
+          >
+            {item.label}
+            <DownArrow rotate={isopenTooltip} />
+          </span>
+        </Tooltip>
+      </>
+    );
+  }
+
   return (
     <Navbar
       isBordered
@@ -56,66 +121,10 @@ export default function App() {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {navMenuItems.map((item, index) => (
           <NavbarItem key={`${item}-${index}pc`}>
-            {item.children?.length ? (
-              <>
-                <Tooltip
-                  delay={0}
-                  closeDelay={200}
-                  isOpen={isopenTooltip}
-                  onOpenChange={(open) => setIsopenTooltip(open)}
-                  content={
-                    <>
-                      <Listbox aria-label="Actions" className="">
-                        {item.children?.map((child) => (
-                          <ListboxItem key={child.path}>
-                            <NavLink
-                              className={cn(
-                                "hover:text-blue-500 h-6 w-full block text-sm h",
-                                `${pathname === child.path ? "text-blue-500" : ""}`,
-                              )}
-                              to={child.path}
-                            >
-                              {child.label}
-                            </NavLink>
-                          </ListboxItem>
-                        ))}
-                      </Listbox>
-                      <Divider />
-
-                      <p className="p-2 text-right rtl:text-left text-gray-500 dark:text-gray-400">
-                        {" "}
-                        {item.des}
-                      </p>
-                    </>
-                  }
-                  showArrow
-                >
-                  <span
-                    className={cn(
-                      "hover:text-blue-500 group cursor-pointer flex items-center text-sm",
-                      `${pathname.includes("awesome") ? "text-blue-500" : ""}`,
-                    )}
-                  >
-                    {item.label}{" "}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1.5em"
-                      height="1.5em"
-                      viewBox="0 0 24 24"
-                      className={cn(`${isopenTooltip ? "rotate-180" : ""}`)}
-                    >
-                      <path
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="m7 10l5 5l5-5"
-                      />
-                    </svg>
-                  </span>
-                </Tooltip>
-              </>
+            {item.params.length ? (
+              sub_menu(item, "params")
+            ) : item.children.length ? (
+              sub_menu(item, "children")
             ) : (
               <NavLink
                 className={cn(
