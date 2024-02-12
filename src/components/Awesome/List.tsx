@@ -86,9 +86,11 @@ function App({ render_data }: { render_data: string }) {
         {!renderData.length ? (
           <ResourcesSkeleton />
         ) : (
-          renderData.slice(page, page + 1 * limit).map((item, index) => {
-            return <ResourcesCard value={item} key={index} />;
-          })
+          renderData
+            .slice(page * limit, (page + 1) * limit)
+            .map((item, index) => {
+              return <ResourcesCard value={item} key={index} />;
+            })
         )}
       </div>
     </>

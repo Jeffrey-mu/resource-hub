@@ -100,10 +100,10 @@ export default function App() {
   function sub_menu_mob(item: MenuItem, type: "params" | "children") {
     const sub_menus = item[type] || [];
     return (
-      <Accordion selectedKeys="all" key={item.path}>
+      <Accordion defaultExpandedKeys={[item.path]} key={item.path}>
         <AccordionItem
           className="py-0"
-          key="1"
+          key={item.path}
           aria-label={item.label}
           title={item.label}
         >
