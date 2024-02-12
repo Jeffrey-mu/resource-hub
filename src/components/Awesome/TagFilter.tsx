@@ -48,7 +48,11 @@ export default function TagFilter({
         <div className="font-bold mb-2">Choose tags that interest you.</div>
         <div className="flex flex-wrap gap-2 w-full p-2 ">
           {Object.keys(countTags)
-            .sort()
+            .sort((a, b) => {
+              if (a === "All") return -1;
+              if (b === "All") return 1;
+              return a.localeCompare(b);
+            })
             .map((key) => {
               return (
                 <Badge
