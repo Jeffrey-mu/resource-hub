@@ -18,7 +18,7 @@ export default function TagFilter({
 }) {
   const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState("All");
   function handleClick(value: string) {
     setActive(value);
     onChildDataChange(value);
