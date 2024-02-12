@@ -94,7 +94,7 @@ export default function ResourcesCard({ value }: ResourcesCardrops) {
 
         <CardFooter className="h-10 py-2 shrink-0">
           <Link
-            className="flex gap-1 text-teal-700"
+            className="flex gap-1 text-success-500 hover:underline"
             isExternal
             showAnchorIcon
             href={url}
