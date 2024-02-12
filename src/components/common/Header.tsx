@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "clsx";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
   Navbar,
   NavbarBrand,
@@ -28,6 +28,7 @@ const navMenuItems = menuItems
   })
   .filter((item) => !item?.hide);
 export default function App() {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isopenTooltip, setIsopenTooltip] = React.useState(false);
   const location = useLocation();
@@ -46,12 +47,17 @@ export default function App() {
           onOpenChange={(open) => setIsopenTooltip(open)}
           content={
             <>
-              <Listbox aria-label="Actions">
+              <Listbox
+                aria-label="Actions"
+                onAction={(key) =>
+                  navigate(item.path.replace(/:(\w+)/, "") + key)
+                }
+              >
                 {sub_menus.map((child) => (
-                  <ListboxItem key={child.path}>
-                    <NavLink
+                  <ListboxItem key={child.label} className="group">
+                    <span
                       className={cn(
-                        "hover:text-blue-500 h-6 block text-sm w-full",
+                        "group-hover:text-blue-500 h-6 block text-sm w-full",
                         `${
                           type === "params"
                             ? pathname ===
@@ -63,14 +69,9 @@ export default function App() {
                               : ""
                         }`,
                       )}
-                      to={`${
-                        type === "params"
-                          ? item.path.replace(/:(\w+)/, "") + child.label
-                          : child.path
-                      }`}
                     >
                       {child.label}
-                    </NavLink>
+                    </span>
                   </ListboxItem>
                 ))}
               </Listbox>
