@@ -31,6 +31,7 @@ function App({ render_data }: { render_data: string }) {
     }
   }, [data]);
   function set(value: string) {
+    setPage(0);
     if (data)
       if (value === "All") {
         setRanderData(data);
