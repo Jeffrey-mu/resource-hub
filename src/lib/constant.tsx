@@ -1,4 +1,4 @@
-import Game from "@/pages/Game";
+// import Game from "@/pages/Game";
 import Helpers from "@/pages/Helpers";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
@@ -54,11 +54,11 @@ export const menuItems: MenuItems = [
       { label: "python", path: "/python", icon: <PythonSvg /> },
     ],
   },
-  {
-    label: "Game",
-    path: "/game",
-    element: <Game />,
-  },
+  // {
+  //   label: "Game",
+  //   path: "/game",
+  //   element: <Game />,
+  // },
   {
     label: "Licensing",
     path: "/licensing",
