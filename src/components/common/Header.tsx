@@ -68,9 +68,10 @@ export default function App() {
                               ? "text-blue-500"
                               : ""
                         }`,
+                        "flex gap-2",
                       )}
                     >
-                      {child.label}
+                      {child?.icon} {child.label}
                     </span>
                   </ListboxItem>
                 ))}
@@ -113,7 +114,7 @@ export default function App() {
               <NavbarMenuItem
                 className="px-2"
                 key={`${child.path}`}
-                onClick={(_) => setIsMenuOpen(false)}
+                onClick={() => setIsMenuOpen(false)}
               >
                 <NavLink
                   className={cn(
@@ -126,6 +127,7 @@ export default function App() {
                       : pathname === child.path
                         ? "text-blue-500"
                         : "text-gray-400",
+                    "flex gap-3",
                   )}
                   to={`${
                     type === "params"
@@ -133,7 +135,7 @@ export default function App() {
                       : child.path
                   }`}
                 >
-                  {child.label}
+                  {child?.icon} {child.label}
                 </NavLink>
               </NavbarMenuItem>
             );
@@ -207,7 +209,7 @@ export default function App() {
             <NavbarMenuItem
               className="px-2"
               key={`${item}-${index}`}
-              onClick={(_) => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}
             >
               <NavLink
                 className={cn(

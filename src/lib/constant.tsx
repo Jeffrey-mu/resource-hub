@@ -4,6 +4,13 @@ import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Licensing from "@/pages/Licensing";
 import Awesome from "@/pages/Awesome/Index";
+import NodeSvg from "@/components/svg/Node";
+import VueSvg from "@/components/svg/Vue";
+import JavascriptSvg from "@/components/svg/Javascript";
+import ReactSvg from "@/components/svg/React";
+import GoSvg from "@/components/svg/Go";
+import JavaSvg from "@/components/svg/Java";
+import PythonSvg from "@/components/svg/Python";
 interface Config {
   siteName: string;
 }
@@ -19,6 +26,7 @@ export type MenuItem = {
   element?: React.ReactNode;
   des?: string;
   hide?: boolean;
+  icon?: React.ReactNode;
   children?: MenuItem[];
   params?: MenuItem[];
 };
@@ -37,13 +45,13 @@ export const menuItems: MenuItems = [
     des: "The Awesome series is a carefully selected resource list that covers various themes and fields.",
     element: <Awesome />,
     params: [
-      { label: "nodejs", path: "/nodejs" },
-      { label: "javascript", path: "/javascript" },
-      { label: "go", path: "/go" },
-      { label: "java", path: "/java" },
-      { label: "vue", path: "/vue" },
-      { label: "react", path: "/react" },
-      { label: "python", path: "/python" },
+      { label: "nodejs", path: "/nodejs", icon: <NodeSvg /> },
+      { label: "javascript", path: "/javascript", icon: <JavascriptSvg /> },
+      { label: "go", path: "/go", icon: <GoSvg /> },
+      { label: "java", path: "/java", icon: <JavaSvg /> },
+      { label: "vue", path: "/vue", icon: <VueSvg /> },
+      { label: "react", path: "/react", icon: <ReactSvg /> },
+      { label: "python", path: "/python", icon: <PythonSvg /> },
     ],
   },
   {
