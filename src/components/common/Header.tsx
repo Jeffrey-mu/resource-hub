@@ -149,6 +149,7 @@ export default function App() {
     <Navbar
       isBordered
       maxWidth="2xl"
+      className=""
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >

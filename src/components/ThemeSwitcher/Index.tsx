@@ -19,7 +19,7 @@ export function ThemeSwitcher() {
   return (
     <div
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="flex flex-col gap-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 w-10 h-10 items-center justify-center"
+      className="flex flex-col gap-2 cursor-pointer hover:opacity-25 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 w-10 h-10 items-center justify-center"
     >
       {theme === "dark" ? <SunIcon /> : <MoonIcon />}
     </div>
