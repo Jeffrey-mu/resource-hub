@@ -1,3 +1,3 @@
 export default function Contact() {
-  return 123;
+  return 123
 }

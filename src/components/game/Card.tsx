@@ -1,14 +1,15 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
-import { Image } from "@nextui-org/react";
-import type { groupByDatePara } from "@/lib/utils";
-import { game_service_path } from "@/lib/constant";
+import { Image } from '@nextui-org/react'
+import { Card, CardContent } from '@/components/ui/card'
+import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer'
+import type { groupByDatePara } from '@/lib/utils'
+import { game_service_path } from '@/lib/constant'
+
 interface GameCardrops {
-  value: groupByDatePara;
+  value: groupByDatePara
 }
 export default function GameCard({ value }: GameCardrops) {
   function get_game_path(path: string): string {
-    return path.replace(".apps.minigame.vip", "");
+    return path.replace('.apps.minigame.vip', '')
   }
   return (
     <>
@@ -38,5 +39,5 @@ export default function GameCard({ value }: GameCardrops) {
         </CardContent>
       </Card>
     </>
-  );
+  )
 }

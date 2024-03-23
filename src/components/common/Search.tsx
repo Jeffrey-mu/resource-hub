@@ -1,10 +1,10 @@
-import algoliasearch from "algoliasearch/lite";
-import { InstantSearch, RefinementList, SearchBox } from "react-instantsearch";
+import algoliasearch from 'algoliasearch/lite'
+import { InstantSearch, RefinementList, SearchBox } from 'react-instantsearch'
 
 const searchClient = algoliasearch(
-  "3EO4EUDYLH",
-  "922272b22dcf265623af20dfa2763a48",
-);
+  '3EO4EUDYLH',
+  '922272b22dcf265623af20dfa2763a48',
+)
 
 export default function Search() {
   return (
@@ -12,5 +12,5 @@ export default function Search() {
       <RefinementList attribute="brand" />
       <SearchBox />
     </InstantSearch>
-  );
+  )
 }

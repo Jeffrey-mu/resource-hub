@@ -1,4 +1,4 @@
-import { cn } from "@nextui-org/react";
+import { cn } from '@nextui-org/react'
 
 export default ({ rotate = false }: { rotate: boolean }) => (
   <svg
@@ -6,7 +6,7 @@ export default ({ rotate = false }: { rotate: boolean }) => (
     width="1.5em"
     height="1.5em"
     viewBox="0 0 24 24"
-    className={cn(`${rotate ? "rotate-180" : ""}`)}
+    className={cn(`${rotate ? 'rotate-180' : ''}`)}
   >
     <path
       fill="none"
@@ -17,4 +17,4 @@ export default ({ rotate = false }: { rotate: boolean }) => (
       d="m7 10l5 5l5-5"
     />
   </svg>
-);
+)

@@ -5,5 +5,5 @@ export default function About() {
 
   我有丰富的前端开发经验,熟练掌握 HTML、CSS、JavaScript 等相关技术,同时也熟练掌握 Vue.js 和 React 等主流前端框架。在 Node 后端开发方面,我熟悉 Express 和 Egg 等框架,也具备使用 Redis、MySQL 等数据库进行数据管理和存储的经验。 */}
     </>
-  );
+  )
 }

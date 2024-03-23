@@ -1,5 +1,6 @@
-import { Card, Skeleton } from "@nextui-org/react";
-const array = new Array(20).join(",").split(",");
+import { Card, Skeleton } from '@nextui-org/react'
+
+const array = Array.from({ length: 20 }).join(',').split(',')
 
 export default function ResourcesSkeleton() {
   return (
@@ -28,8 +29,8 @@ export default function ResourcesSkeleton() {
               </Skeleton>
             </div>
           </Card>
-        );
+        )
       })}
     </>
-  );
+  )
 }

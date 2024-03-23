@@ -1,10 +1,11 @@
-import ResourcesList from "@/components/Awesome/List";
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom'
+import ResourcesList from '@/components/Awesome/List'
+
 export default function App() {
-  let { type } = useParams();
+  const { type } = useParams()
   return (
     <>
-      <ResourcesList render_data={"awesome-" + type} />
+      <ResourcesList render_data={`awesome-${type}`} />
     </>
-  );
+  )
 }

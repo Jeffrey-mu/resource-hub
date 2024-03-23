@@ -1,50 +1,51 @@
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
-  Divider,
-  Link,
-  Image,
+  CardHeader,
   Chip,
-} from "@nextui-org/react";
-import dayjs from "dayjs";
+  Divider,
+  Image,
+  Link,
+} from '@nextui-org/react'
+import dayjs from 'dayjs'
+
 export interface ResourcesCardInfo {
-  name: string;
+  name: string
   data: {
-    name: string;
-    desc: string;
-    url: string;
-    tags: string[];
-    maintainers: string[];
-    addedAt: string;
-  };
+    name: string
+    desc: string
+    url: string
+    tags: string[]
+    maintainers: string[]
+    addedAt: string
+  }
 }
 export interface ResourcesCardrops {
-  value: ResourcesCardInfo;
+  value: ResourcesCardInfo
 }
 
 export function formatCountTags(
   packageList: ResourcesCardInfo[],
 ): Record<string, number> {
-  const tagCount: Record<string, number> = {};
-  tagCount["All"] = packageList.length;
+  const tagCount: Record<string, number> = {}
+  tagCount.All = packageList.length
   packageList.forEach((packageInfo) => {
-    const { tags } = packageInfo.data;
+    const { tags } = packageInfo.data
 
     tags.forEach((tag) => {
-      tagCount[tag] = (tagCount[tag] || 0) + 1;
-    });
-  });
+      tagCount[tag] = (tagCount[tag] || 0) + 1
+    })
+  })
 
-  return tagCount;
+  return tagCount
 }
 
 export default function ResourcesCard({ value }: ResourcesCardrops) {
-  const { name, desc, url, tags, addedAt } = value.data;
+  const { name, desc, url, tags, addedAt } = value.data
 
   function formatData(time: string, format: string): string {
-    return dayjs(time).format(format);
+    return dayjs(time).format(format)
   }
   return (
     <>
@@ -67,7 +68,7 @@ export default function ResourcesCard({ value }: ResourcesCardrops) {
           <div className="flex flex-col">
             <p className="text-md text-lg">{name}</p>
             <p className="text-small text-default-500">
-              {`${formatData(addedAt, "MMM")} ${formatData(addedAt, "YYYY")}`}
+              {`${formatData(addedAt, 'MMM')} ${formatData(addedAt, 'YYYY')}`}
             </p>
           </div>
         </CardHeader>
@@ -83,10 +84,11 @@ export default function ResourcesCard({ value }: ResourcesCardrops) {
             {tags.map((item) => {
               return (
                 <Chip color="secondary" key={item}>
-                  {" "}
-                  {item}{" "}
+                  {' '}
+                  {item}
+                  {' '}
                 </Chip>
-              );
+              )
             })}
           </div>
         </CardBody>
@@ -99,11 +101,11 @@ export default function ResourcesCard({ value }: ResourcesCardrops) {
             showAnchorIcon
             href={url}
           >
-            {" "}
+            {' '}
             visit a website
           </Link>
         </CardFooter>
       </Card>
     </>
-  );
+  )
 }

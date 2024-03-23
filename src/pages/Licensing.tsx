@@ -1,4 +1,5 @@
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from 'react-markdown'
+
 export default function Licensing() {
   const md = `# MIT License
 
@@ -21,6 +22,6 @@ export default function Licensing() {
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
-  `;
-  return <ReactMarkdown>{md}</ReactMarkdown>;
+  `
+  return <ReactMarkdown>{md}</ReactMarkdown>
 }

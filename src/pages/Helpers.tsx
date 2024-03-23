@@ -1,4 +1,5 @@
-import ResourcesList from "@/components/Awesome/List";
+import ResourcesList from '@/components/Awesome/List'
+
 export default function App() {
-  return <ResourcesList render_data="helpers" />;
+  return <ResourcesList render_data="helpers" />
 }
