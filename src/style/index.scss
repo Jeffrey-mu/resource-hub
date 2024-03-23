@@ -1,7 +1,12 @@
-.App {
+#root {
   overflow: hidden;
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
-
+.dark {
+  #root {
+    background: black ;
+  }
+}
 .container {
   padding: 10px;
   flex: 1;
